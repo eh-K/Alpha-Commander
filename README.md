@@ -7,7 +7,7 @@ This tool is currently only for RGH consoles running the JRPC plugin. Xenia vers
 
 ![image](etc/v1_00-Image.png)
 
-#Features
+# Features
 Can currently:
 
 Simply paste the Cbuf
