@@ -5,3 +5,4 @@ C:\Users\echo2\OneDrive\Documents\Visual Studio 2013\Projects\RTE Tool - Individ
 C:\Users\echo2\OneDrive\Documents\Visual Studio 2013\Projects\RTE Tool - Individual Game\RTE-Tool\obj\Release\Alpha Commander Tool.csproj.GenerateResource.Cache
 C:\Users\echo2\OneDrive\Documents\Visual Studio 2013\Projects\RTE Tool - Individual Game\RTE-Tool\obj\Release\Alpha Commander Tool.exe
 C:\Users\echo2\OneDrive\Documents\Visual Studio 2013\Projects\RTE Tool - Individual Game\RTE-Tool\obj\Release\Alpha Commander Tool.pdb
+C:\Users\echo2\OneDrive\Documents\Visual Studio 2013\Projects\RTE Tool - Individual Game\RTE-Tool\obj\Release\Alpha Commander Tool.csprojResolveAssemblyReference.cache

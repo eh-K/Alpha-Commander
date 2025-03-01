@@ -21,12 +21,25 @@ namespace RTE_Tool
             public static int helpButtonVisible = 0;
             public static int photoButtonPressed = 0;
             public static int weaponShown = 1;
+            public static int detected_Greenlight = 0;
         }
 
         public Form1()
         {
             InitializeComponent();
         }
+
+        public class buildChecker
+        {
+            public static void Run()
+            {
+                MessageBox.Show("Test Message");
+            }
+        }
+
+        string[] GreenlightList = { "0x822ff6e8", "822ff6e8 ", "f5y" };
+        //822ff6e8 - DefaultMpPatch.xex
+
 
         //time to party
         private void buttonConnect_Click(object sender, EventArgs e)
@@ -78,7 +91,7 @@ namespace RTE_Tool
         {
             MessageBox.Show("Tool made by JammingCat21"
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Special Thanks:" + Environment.NewLine + Environment.NewLine + "Heaventh" + Environment.NewLine + "Baked Muted" 
-                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.28.02.01.00", "Credits");
+                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.01.03.01.01", "Credits");
         }
         ////////////////////////////////////////////////////////
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -174,30 +187,48 @@ namespace RTE_Tool
 
             else
             {
+                
                 if (Global.photoButtonPressed == 0)
                 {
                     string tempCBUF = textCBUFEntry.Text;
 
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 0");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 0");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 0");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 0");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 0");
-                    Global.photoButtonPressed = 1;
+                    if (GreenlightList.Contains(textCBUFEntry.Text))
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 0");
+                    }
+
+                    else
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 0");
+                        Global.photoButtonPressed = 1;
+                    }
                 }
 
                 else
                 {
                     string tempCBUF = textCBUFEntry.Text;
 
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 1");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 1");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 1");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 1");
-                    Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 1");
-                    Global.photoButtonPressed = 0;
+                    if (GreenlightList.Contains(textCBUFEntry.Text))
+                    {
+                        //cg_drawBigFPS
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 1");
+                    }
+
+                    else
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 1");
+                        Global.photoButtonPressed = 0;
+                    }
                 }
             }
         }
@@ -208,16 +239,16 @@ namespace RTE_Tool
         ////////////////////////////////////////////////////////
         private void checkShowWeapon_CheckedChanged(object sender, EventArgs e)
         {
-            if (Global.weaponShown == 1)
+            if (Global.detected_Greenlight == 1)
             {
-                Global.weaponShown = 0;
+                Global.detected_Greenlight = 0;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 0");
             }
 
             else
             {
-                Global.weaponShown = 1;
+                Global.detected_Greenlight = 1;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 1");
             }
