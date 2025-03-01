@@ -3,6 +3,8 @@ Alpha Commander is an RTM tool that allows you to quickly access commands/map fi
 
 Found a build? Simply paste the Cbuf into the tool and launch functioning map files without having to wait for community patches.
 
+Growing list of every Cbuf_addText can be found [here!](https://github.com/bandito52/all-COD-cats)
+
 This tool is currently only for RGH consoles running the JRPC plugin. Xenia version is currently out of the question.
 
 ![image](etc/v1_00-Image.png)
