@@ -5,6 +5,8 @@ Found a build? Simply paste the Cbuf into the tool and launch functioning map fi
 
 This tool is currently only for RGH consoles running the JRPC plugin. Xenia version is currently out of the question.
 
+![image](etc/v1_00-Image.png)
+
 #Features
 Can currently:
 
