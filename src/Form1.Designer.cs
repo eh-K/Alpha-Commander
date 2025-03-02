@@ -125,7 +125,7 @@
             this.buttonNoClipGod.Enabled = false;
             this.buttonNoClipGod.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNoClipGod.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNoClipGod.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonNoClipGod.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonNoClipGod.Location = new System.Drawing.Point(6, 79);
             this.buttonNoClipGod.Name = "buttonNoClipGod";
             this.buttonNoClipGod.Size = new System.Drawing.Size(101, 23);
