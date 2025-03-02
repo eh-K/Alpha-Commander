@@ -1,24 +1,21 @@
 # Alpha-Commander
-Alpha Commander is an RTM tool that allows you to quickly access commands/map files for ANY Call of Duty build.
+Alpha Commander is an RTM tool that allows you to quickly access commands/map files for ANY Call of Duty build on Xbox 360.
 
-Found a build? Simply paste the Cbuf into the tool and launch functioning map files without having to wait for community patches.
+List of every Cbuf_addText can be found [HERE!](https://github.com/bandito52/all-COD-cats)
 
-Growing list of every Cbuf_addText can be found [here!](https://github.com/bandito52/all-COD-cats)
-
-This tool is currently only for RGH consoles running the JRPC plugin. Xenia version is currently out of the question.
+Supports RGH consoles running the JRPC plugin.
 
 ![image](etc/v1_00-Image.png)
 
 # Features
-Can currently:
 
-Simply paste the Cbuf
-
-Load map files of either Campaign or Multiplayer
-
-Enter commands
-
-Basic Photo Mode where all UI is toggable.
+> Simply paste the Cbuf_addText offset
+> 
+> Load any map files(that aren't broke)
+> 
+> Enter commands
+> 
+> Photo Mode where all UI is toggable(Not recommended on retail builds)
 
 # Credits
 Heaventh - uint textbox entry conversion
