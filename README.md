@@ -1,9 +1,9 @@
 # Alpha-Commander
-Alpha Commander is an RTM tool that allows you to quickly access commands/map files for ANY Call of Duty build on Xbox 360.
+Alpha Commander is an RTM tool that offers quick access for commands/map files on any build of COD on Xbox 360.
 
 List of every Cbuf_addText can be found [HERE!](https://github.com/bandito52/all-COD-cats)
 
-Supports RGH consoles running the JRPC plugin.
+Only supports RGH consoles running the JRPC plugin.
 
 ![image](etc/v1_00-Image.png)
 
