@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////
+        private void buttonPhotoMode_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                
+                if (Global.photoButtonPressed == 0)
+                {
+                    string tempCBUF = textCBUFEntry.Text;
+
+                    if (GreenlightList.Contains(textCBUFEntry.Text))
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 0");
+                    }
+
+                    else
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 0");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 0");
+                        Global.photoButtonPressed = 1;
+                        if (Global.isDebug == 1)
+                        {
+                            Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 0");
+                        }
+                    }
+                }
+
+                else
+                {
+                    string tempCBUF = textCBUFEntry.Text;
+
+                    if (GreenlightList.Contains(textCBUFEntry.Text))
+                    {
+                        //cg_drawBigFPS
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 1");
+                    }
+
+                    else
+                    {
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 1");
+                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 1");
+                        Global.photoButtonPressed = 0;
+                        if (Global.isDebug == 1)
+                        {
+                            Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 1");
+                        }
+                    }
+                }
+            }
+        }
