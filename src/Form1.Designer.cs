@@ -36,7 +36,6 @@
             this.buttonSetFOV = new System.Windows.Forms.Button();
             this.buttonNoClipGod = new System.Windows.Forms.Button();
             this.textMapEntry = new System.Windows.Forms.TextBox();
-            this.checkDebugBuild = new System.Windows.Forms.CheckBox();
             this.buttonLoadMap = new System.Windows.Forms.Button();
             this.buttonCredits = new System.Windows.Forms.Button();
             this.textCBUFEntry = new System.Windows.Forms.TextBox();
@@ -146,20 +145,6 @@
             this.textMapEntry.TabIndex = 13;
             this.textMapEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // checkDebugBuild
-            // 
-            this.checkDebugBuild.AutoSize = true;
-            this.checkDebugBuild.Enabled = false;
-            this.checkDebugBuild.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkDebugBuild.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.checkDebugBuild.Location = new System.Drawing.Point(6, 39);
-            this.checkDebugBuild.Name = "checkDebugBuild";
-            this.checkDebugBuild.Size = new System.Drawing.Size(62, 19);
-            this.checkDebugBuild.TabIndex = 17;
-            this.checkDebugBuild.Text = "Debug";
-            this.checkDebugBuild.UseVisualStyleBackColor = true;
-            this.checkDebugBuild.CheckedChanged += new System.EventHandler(this.checkDebugBuild_CheckedChanged);
-            // 
             // buttonLoadMap
             // 
             this.buttonLoadMap.BackColor = System.Drawing.Color.Silver;
@@ -181,7 +166,7 @@
             this.buttonCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCredits.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCredits.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCredits.Location = new System.Drawing.Point(208, 229);
+            this.buttonCredits.Location = new System.Drawing.Point(208, 201);
             this.buttonCredits.Name = "buttonCredits";
             this.buttonCredits.Size = new System.Drawing.Size(101, 23);
             this.buttonCredits.TabIndex = 4;
@@ -210,7 +195,7 @@
             this.richTextGameList.Location = new System.Drawing.Point(321, 17);
             this.richTextGameList.Name = "richTextGameList";
             this.richTextGameList.ReadOnly = true;
-            this.richTextGameList.Size = new System.Drawing.Size(295, 232);
+            this.richTextGameList.Size = new System.Drawing.Size(295, 207);
             this.richTextGameList.TabIndex = 20;
             this.richTextGameList.Text = resources.GetString("richTextGameList.Text");
             this.richTextGameList.Visible = false;
@@ -278,7 +263,7 @@
             this.groupBoxMain.Controls.Add(this.buttonList);
             this.groupBoxMain.Location = new System.Drawing.Point(12, 12);
             this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Size = new System.Drawing.Size(179, 97);
+            this.groupBoxMain.Size = new System.Drawing.Size(179, 83);
             this.groupBoxMain.TabIndex = 23;
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Launch Controls";
@@ -289,7 +274,7 @@
             this.groupBox2.Controls.Add(this.buttonSendCommand);
             this.groupBox2.Controls.Add(this.textMapEntry);
             this.groupBox2.Controls.Add(this.buttonLoadMap);
-            this.groupBox2.Location = new System.Drawing.Point(12, 123);
+            this.groupBox2.Location = new System.Drawing.Point(12, 100);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(179, 131);
             this.groupBox2.TabIndex = 24;
@@ -299,10 +284,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.checkShowWeapon);
-            this.groupBox3.Controls.Add(this.checkDebugBuild);
             this.groupBox3.Location = new System.Drawing.Point(202, 123);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(113, 100);
+            this.groupBox3.Size = new System.Drawing.Size(113, 71);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Options";
@@ -311,7 +295,7 @@
             // 
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(321, 259);
+            this.ClientSize = new System.Drawing.Size(320, 241);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxMain);
@@ -325,7 +309,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.01";
+            this.Text = "Alpha Commander v1.02";
             this.groupBox1.ResumeLayout(false);
             this.groupBoxMain.ResumeLayout(false);
             this.groupBoxMain.PerformLayout();
@@ -347,7 +331,6 @@
         private System.Windows.Forms.Button buttonSetFOV;
         private System.Windows.Forms.Button buttonNoClipGod;
         private System.Windows.Forms.TextBox textMapEntry;
-        private System.Windows.Forms.CheckBox checkDebugBuild;
         private System.Windows.Forms.Button buttonLoadMap;
         private System.Windows.Forms.Button buttonCredits;
         private System.Windows.Forms.TextBox textCBUFEntry;

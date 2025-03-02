@@ -54,8 +54,8 @@ namespace RTE_Tool
                 buttonLoadMap.Enabled = true;
                 buttonSetFOV.Enabled = true;
                 buttonPhotoMode.Enabled = true;
+                buttonNoClipGod.Enabled = true;
 
-                checkDebugBuild.Enabled = true;
                 checkShowWeapon.Enabled = true;
                 groupBoxMain.Text = "Launch Controls - Connected!";
             }
@@ -91,7 +91,7 @@ namespace RTE_Tool
         {
             MessageBox.Show("Tool made by JammingCat21"
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Special Thanks:" + Environment.NewLine + Environment.NewLine + "Heaventh" + Environment.NewLine + "Baked Muted" 
-                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.01.03.01.01", "Credits");
+                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.02.03.01.02", "Credits");
         }
         ////////////////////////////////////////////////////////
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -239,32 +239,18 @@ namespace RTE_Tool
         ////////////////////////////////////////////////////////
         private void checkShowWeapon_CheckedChanged(object sender, EventArgs e)
         {
-            if (Global.detected_Greenlight == 1)
+            if (Global.weaponShown == 1)
             {
-                Global.detected_Greenlight = 0;
+                Global.weaponShown = 0;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 0");
             }
 
             else
             {
-                Global.detected_Greenlight = 1;
+                Global.weaponShown = 1;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 1");
-            }
-        }
-        ////////////////////////////////////////////////////////
-        private void checkDebugBuild_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkDebugBuild.Checked)
-            {
-                buttonNoClipGod.Enabled = true;
-                buttonNoClipGod.ForeColor = Color.Black;
-            }
-
-            else
-            {
-                buttonNoClipGod.Enabled = false;
             }
         }
     }

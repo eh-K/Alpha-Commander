@@ -119,7 +119,8 @@
   </resheader>
   <data name="richTextGameList.Text" xml:space="preserve">
     <value>~ List of Cbuf Offsets ~
-This list will be updated soon.
+https://github.com/bandito52/all-COD-Cbuf_addTexts
+
 
 Offsets		Game
 
@@ -132,7 +133,6 @@ Offsets		Game
 0x822c8c20	5-MP-Demo
 	Ghosts
 0x82385190	May 9 2013
-0x823c3d70	May 21 2013 - DOESN'T SEEM TO WORK
 	AW
 0x82814018	Sep 16 2014 MP</value>
   </data>
