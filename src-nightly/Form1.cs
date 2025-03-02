@@ -20,14 +20,14 @@ namespace RTE_Tool
         public static class Global
         {
             public static int nCheck = 1;
-            public static string nVersion = "x001";
+            public static string nVersion = "x002";
             public static string nTitle = "Nightly Build " + nVersion;
             /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
             public static int helpButtonVisible = 0;
             public static int photoButtonPressed = 0;
             public static int weaponShown = 1;
-            public static int detected_Greenlight = 0;
-            public static int isDebug = 0;
+            //public static int detected_Greenlight = 0;
+            //public static int isDebug = 0;
         }
 
         public Form1()
@@ -47,13 +47,9 @@ namespace RTE_Tool
             }
         }
 
-
         
-        string[] GreenlightList = { "0x822ff6e8", "822ff6e8 ", "f5y" };
+        //string[] GreenlightList = { "0x822ff6e8", "822ff6e8 ", "f5y" };
         //822ff6e8 - DefaultMpPatch.xex
-
-        
-
 
         //time to party
         private void buttonConnect_Click(object sender, EventArgs e)
@@ -68,11 +64,10 @@ namespace RTE_Tool
                 buttonSendCommand.Enabled = true;
                 buttonLoadMap.Enabled = true;
                 buttonSetFOV.Enabled = true;
-                buttonPhotoMode.Enabled = true;
                 buttonNoClipGod.Enabled = true;
 
                 checkShowWeapon.Enabled = true;
-                groupBoxMain.Text = "Launch Controls - Connected!";
+                groupLauch.Text = "Launch Controls - Connected!";
             }
             else
             {
@@ -179,7 +174,7 @@ namespace RTE_Tool
             {
                 richTextGameList.Visible = true;
                 Global.helpButtonVisible = 1;
-                this.Width = (644);
+                this.Width = (727);
                 buttonList.BackColor = Color.Violet;
             }
 
@@ -189,68 +184,6 @@ namespace RTE_Tool
                 Global.helpButtonVisible = 0;
                 this.Width = (337);
                 buttonList.BackColor = Color.PaleTurquoise;
-            }
-        }
-        ////////////////////////////////////////////////////////
-        private void buttonPhotoMode_Click(object sender, EventArgs e)
-        {
-            if (Xbox360 == null)
-            {
-                MessageBox.Show("Tool is not connected.", "Tool Alert");
-                return;
-            }
-
-            else
-            {
-                
-                if (Global.photoButtonPressed == 0)
-                {
-                    string tempCBUF = textCBUFEntry.Text;
-
-                    if (GreenlightList.Contains(textCBUFEntry.Text))
-                    {
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 0");
-                    }
-
-                    else
-                    {
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 0");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 0");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 0");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 0");
-                        Global.photoButtonPressed = 1;
-                        if (Global.isDebug == 1)
-                        {
-                            Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 0");
-                        }
-                    }
-                }
-
-                else
-                {
-                    string tempCBUF = textCBUFEntry.Text;
-
-                    if (GreenlightList.Contains(textCBUFEntry.Text))
-                    {
-                        //cg_drawBigFPS
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawBigFPS 1");
-                    }
-
-                    else
-                    {
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawCrosshair 1");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPS 1");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawFPSLabels 1");
-                        Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "lui_enabled 1");
-                        Global.photoButtonPressed = 0;
-                        if (Global.isDebug == 1)
-                        {
-                            Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "debug_show_viewpos 1");
-                        }
-                    }
-                }
             }
         }
         ////////////////////////////////////////////////////////
@@ -272,18 +205,6 @@ namespace RTE_Tool
                 Global.weaponShown = 1;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 1");
-            }
-        }
-        ////////////////////////////////////////////////////////
-        private void checkDebug_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Global.isDebug == 0)
-            {
-                Global.isDebug = 1;
-            }
-            else
-            {
-                Global.isDebug = 0;
             }
         }
     }

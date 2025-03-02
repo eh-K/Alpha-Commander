@@ -121,20 +121,75 @@
     <value>~ List of Cbuf Offsets ~
 https://github.com/bandito52/all-COD-Cbuf_addTexts
 
+$ - Not tested.
 
-Offsets		Game
 
-	Black Ops 2
-0x824015E0	TU18 MP
-0x825e47f0	RFAZIO Debug MP
-0x825665f8	RFAZIO Debug Campaign
-0x822ff6e8 	Greenlight MP
-	NX1
-0x822c8c20	5-MP-Demo
-	Ghosts
-0x82385190	May 9 2013
-	AW
-0x82814018	Sep 16 2014 MP</value>
+		NX1
+#################################################
+	0x822c8c20 	- NX1 5-MP-Demo.exe
+
+
+		COD4
+#################################################
+	0x821DE9D8 	- $ Disc Campaign
+	0x82237C50 	- $ Disc MP
+
+
+		WAW
+#################################################
+	0x82238978 	- $ Disc Campaign
+	0x8226C540 	- $ Disc MP
+
+
+		MW2
+#################################################
+	0x8227CF18 	- $ Disc Campaign
+	0x82275470 	- $ Disc MP
+
+	0x82275CE8 	- 07-13-2009 Alpha default.xex
+	0x8226F590 	- 07-13-2009 Alpha default_mp.xex
+$	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
+	0x8235D328 	- 07-13-2009 Alpha 2-iw4mp.exe
+
+		BO1
+#################################################
+	0x8232EA30 	- $ Disc Campaign
+	0x823481C0 	- $ Disc MP
+
+
+		MW3
+#################################################
+	0x8228CA48 	- $ Disc Campaign
+	0x82282908 	- $ Disc MP
+
+
+		BO2
+#################################################
+	0x82350A20 	- $ Disc Campaign
+	0x82393F28 	- $ Disc MP
+
+	0x822ff6e8 	- Greenlight DefaultMpPatch.xex
+
+	0x825665f8 	- $ RFAZIO CODSP.exe
+	0x825e47f0 	- RFAZIO CODMP.exe
+
+
+		Ghosts
+#################################################
+	0x823BC588 	- $ Disc Campaign
+	0x82414A80 	- $ Disc MP
+
+	0x82385190 	- May 9, 2013 default_mp.xex
+
+	0x823c3d70 	- May 21, 2013 default_mp.xex
+
+
+		AW
+#################################################
+	0x82408B70 	- $ Disc Campaign
+	0x824A2308 	- $ Disc MP
+
+	0x82814018 	- Sep 16, 2014 2-s1_mp.exe</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
