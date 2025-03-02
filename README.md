@@ -9,13 +9,13 @@ Supports RGH consoles running the JRPC plugin.
 
 # Features
 
-> Simply paste the Cbuf_addText offset
-> 
-> Load any map files(that aren't broke)
-> 
-> Enter commands
-> 
-> Photo Mode where all UI is toggable(Not recommended on retail builds)
+> - Simply paste the Cbuf_addText offset
+> - Load any map files(that aren't broke)
+> - Enter commands
+> - Photo Mode where all UI is toggable(Not recommended on retail builds)
+> - Quick commands such as FOV and noClip/God for debug versions.
 
 # Credits
-Heaventh - uint textbox entry conversion
+Heaventh 
+- Base code to even make a tool
+- uint textbox entry conversion
