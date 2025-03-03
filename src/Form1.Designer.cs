@@ -41,16 +41,15 @@
             this.textCBUFEntry = new System.Windows.Forms.TextBox();
             this.richTextGameList = new System.Windows.Forms.RichTextBox();
             this.buttonList = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonPhotoMode = new System.Windows.Forms.Button();
+            this.groupCommands = new System.Windows.Forms.GroupBox();
             this.checkShowWeapon = new System.Windows.Forms.CheckBox();
-            this.groupBoxMain = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBoxMain.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupLauch = new System.Windows.Forms.GroupBox();
+            this.groupEntry = new System.Windows.Forms.GroupBox();
+            this.groupOptions = new System.Windows.Forms.GroupBox();
+            this.groupCommands.SuspendLayout();
+            this.groupLauch.SuspendLayout();
+            this.groupEntry.SuspendLayout();
+            this.groupOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonConnect
@@ -126,7 +125,7 @@
             this.buttonNoClipGod.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNoClipGod.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNoClipGod.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonNoClipGod.Location = new System.Drawing.Point(6, 79);
+            this.buttonNoClipGod.Location = new System.Drawing.Point(6, 50);
             this.buttonNoClipGod.Name = "buttonNoClipGod";
             this.buttonNoClipGod.Size = new System.Drawing.Size(101, 23);
             this.buttonNoClipGod.TabIndex = 12;
@@ -166,7 +165,7 @@
             this.buttonCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCredits.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCredits.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCredits.Location = new System.Drawing.Point(208, 201);
+            this.buttonCredits.Location = new System.Drawing.Point(208, 177);
             this.buttonCredits.Name = "buttonCredits";
             this.buttonCredits.Size = new System.Drawing.Size(101, 23);
             this.buttonCredits.TabIndex = 4;
@@ -195,7 +194,7 @@
             this.richTextGameList.Location = new System.Drawing.Point(321, 17);
             this.richTextGameList.Name = "richTextGameList";
             this.richTextGameList.ReadOnly = true;
-            this.richTextGameList.Size = new System.Drawing.Size(295, 207);
+            this.richTextGameList.Size = new System.Drawing.Size(383, 214);
             this.richTextGameList.TabIndex = 20;
             this.richTextGameList.Text = resources.GetString("richTextGameList.Text");
             this.richTextGameList.Visible = false;
@@ -213,32 +212,16 @@
             this.buttonList.UseVisualStyleBackColor = false;
             this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
-            // groupBox1
+            // groupCommands
             // 
-            this.groupBox1.Controls.Add(this.buttonPhotoMode);
-            this.groupBox1.Controls.Add(this.buttonSetFOV);
-            this.groupBox1.Controls.Add(this.buttonNoClipGod);
-            this.groupBox1.Location = new System.Drawing.Point(202, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(113, 108);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Commands";
-            // 
-            // buttonPhotoMode
-            // 
-            this.buttonPhotoMode.BackColor = System.Drawing.Color.Silver;
-            this.buttonPhotoMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPhotoMode.Enabled = false;
-            this.buttonPhotoMode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPhotoMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPhotoMode.Location = new System.Drawing.Point(6, 50);
-            this.buttonPhotoMode.Name = "buttonPhotoMode";
-            this.buttonPhotoMode.Size = new System.Drawing.Size(101, 23);
-            this.buttonPhotoMode.TabIndex = 18;
-            this.buttonPhotoMode.Text = "Photomode";
-            this.buttonPhotoMode.UseVisualStyleBackColor = false;
-            this.buttonPhotoMode.Click += new System.EventHandler(this.buttonPhotoMode_Click);
+            this.groupCommands.Controls.Add(this.buttonSetFOV);
+            this.groupCommands.Controls.Add(this.buttonNoClipGod);
+            this.groupCommands.Location = new System.Drawing.Point(202, 12);
+            this.groupCommands.Name = "groupCommands";
+            this.groupCommands.Size = new System.Drawing.Size(113, 83);
+            this.groupCommands.TabIndex = 22;
+            this.groupCommands.TabStop = false;
+            this.groupCommands.Text = "Commands";
             // 
             // checkShowWeapon
             // 
@@ -256,52 +239,52 @@
             this.checkShowWeapon.UseVisualStyleBackColor = true;
             this.checkShowWeapon.CheckedChanged += new System.EventHandler(this.checkShowWeapon_CheckedChanged);
             // 
-            // groupBoxMain
+            // groupLauch
             // 
-            this.groupBoxMain.Controls.Add(this.buttonConnect);
-            this.groupBoxMain.Controls.Add(this.textCBUFEntry);
-            this.groupBoxMain.Controls.Add(this.buttonList);
-            this.groupBoxMain.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Size = new System.Drawing.Size(179, 83);
-            this.groupBoxMain.TabIndex = 23;
-            this.groupBoxMain.TabStop = false;
-            this.groupBoxMain.Text = "Launch Controls";
+            this.groupLauch.Controls.Add(this.buttonConnect);
+            this.groupLauch.Controls.Add(this.textCBUFEntry);
+            this.groupLauch.Controls.Add(this.buttonList);
+            this.groupLauch.Location = new System.Drawing.Point(12, 12);
+            this.groupLauch.Name = "groupLauch";
+            this.groupLauch.Size = new System.Drawing.Size(179, 83);
+            this.groupLauch.TabIndex = 23;
+            this.groupLauch.TabStop = false;
+            this.groupLauch.Text = "Launch Controls";
             // 
-            // groupBox2
+            // groupEntry
             // 
-            this.groupBox2.Controls.Add(this.textCommandBox);
-            this.groupBox2.Controls.Add(this.buttonSendCommand);
-            this.groupBox2.Controls.Add(this.textMapEntry);
-            this.groupBox2.Controls.Add(this.buttonLoadMap);
-            this.groupBox2.Location = new System.Drawing.Point(12, 100);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(179, 131);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Entry Section";
+            this.groupEntry.Controls.Add(this.textCommandBox);
+            this.groupEntry.Controls.Add(this.buttonSendCommand);
+            this.groupEntry.Controls.Add(this.textMapEntry);
+            this.groupEntry.Controls.Add(this.buttonLoadMap);
+            this.groupEntry.Location = new System.Drawing.Point(12, 100);
+            this.groupEntry.Name = "groupEntry";
+            this.groupEntry.Size = new System.Drawing.Size(179, 131);
+            this.groupEntry.TabIndex = 24;
+            this.groupEntry.TabStop = false;
+            this.groupEntry.Text = "Entry Section";
             // 
-            // groupBox3
+            // groupOptions
             // 
-            this.groupBox3.Controls.Add(this.checkShowWeapon);
-            this.groupBox3.Location = new System.Drawing.Point(202, 123);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(113, 71);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Options";
+            this.groupOptions.Controls.Add(this.checkShowWeapon);
+            this.groupOptions.Location = new System.Drawing.Point(202, 100);
+            this.groupOptions.Name = "groupOptions";
+            this.groupOptions.Size = new System.Drawing.Size(113, 71);
+            this.groupOptions.TabIndex = 25;
+            this.groupOptions.TabStop = false;
+            this.groupOptions.Text = "Options";
             // 
             // Form1
             // 
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(320, 241);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBoxMain);
+            this.ClientSize = new System.Drawing.Size(321, 241);
+            this.Controls.Add(this.groupOptions);
+            this.Controls.Add(this.groupEntry);
+            this.Controls.Add(this.groupLauch);
             this.Controls.Add(this.buttonCredits);
             this.Controls.Add(this.richTextGameList);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupCommands);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -309,14 +292,14 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.02";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBoxMain.ResumeLayout(false);
-            this.groupBoxMain.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.Text = "Alpha Commander v1.03";
+            this.groupCommands.ResumeLayout(false);
+            this.groupLauch.ResumeLayout(false);
+            this.groupLauch.PerformLayout();
+            this.groupEntry.ResumeLayout(false);
+            this.groupEntry.PerformLayout();
+            this.groupOptions.ResumeLayout(false);
+            this.groupOptions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,12 +319,11 @@
         private System.Windows.Forms.TextBox textCBUFEntry;
         private System.Windows.Forms.RichTextBox richTextGameList;
         private System.Windows.Forms.Button buttonList;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBoxMain;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonPhotoMode;
+        private System.Windows.Forms.GroupBox groupCommands;
+        private System.Windows.Forms.GroupBox groupLauch;
+        private System.Windows.Forms.GroupBox groupEntry;
         private System.Windows.Forms.CheckBox checkShowWeapon;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupOptions;
     }
 }
 
