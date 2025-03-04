@@ -20,14 +20,12 @@ namespace RTE_Tool
         public static class Global
         {
             public static int nCheck = 1;
-            public static string nVersion = "x002";
+            public static string nVersion = "x003";
             public static string nTitle = "Nightly Build " + nVersion;
             /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
             public static int helpButtonVisible = 0;
             public static int photoButtonPressed = 0;
             public static int weaponShown = 1;
-            //public static int detected_Greenlight = 0;
-            //public static int isDebug = 0;
         }
 
         public Form1()
@@ -46,10 +44,6 @@ namespace RTE_Tool
                 }
             }
         }
-
-        
-        //string[] GreenlightList = { "0x822ff6e8", "822ff6e8 ", "f5y" };
-        //822ff6e8 - DefaultMpPatch.xex
 
         //time to party
         private void buttonConnect_Click(object sender, EventArgs e)
@@ -101,7 +95,8 @@ namespace RTE_Tool
         {
             MessageBox.Show("Tool made by JammingCat21"
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Special Thanks:" + Environment.NewLine + Environment.NewLine + "Heaventh" + Environment.NewLine + "Baked Muted" 
-                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.02.03.01.02", "Credits");
+                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.02.03.01.03", "Credits");
+            
         }
         ////////////////////////////////////////////////////////
         private void buttonMinimize_Click(object sender, EventArgs e)

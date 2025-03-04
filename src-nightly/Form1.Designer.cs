@@ -292,7 +292,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.02";
+            this.Text = "Alpha Commander v1.04";
             this.groupCommands.ResumeLayout(false);
             this.groupLauch.ResumeLayout(false);
             this.groupLauch.PerformLayout();
