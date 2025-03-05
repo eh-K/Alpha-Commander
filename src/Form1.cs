@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -11,6 +13,9 @@ using System.Windows.Forms;
 using XDevkit;
 using JRPC_Client;
 
+
+//337,277
+
 namespace RTE_Tool
 {
     public partial class Form1 : Form
@@ -20,7 +25,7 @@ namespace RTE_Tool
         public static class Global
         {
             public static int nCheck = 0;
-            public static string nVersion = "x002";
+            public static string nVersion = "x003";
             public static string nTitle = "Nightly Build " + nVersion;
             /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
             public static int helpButtonVisible = 0;
@@ -54,12 +59,12 @@ namespace RTE_Tool
                 Xbox360.XNotify("Tool Connected!");
                 textCommandBox.Enabled = true;
                 textMapEntry.Enabled = true;
-                
+                //
                 buttonSendCommand.Enabled = true;
                 buttonLoadMap.Enabled = true;
                 buttonSetFOV.Enabled = true;
                 buttonNoClipGod.Enabled = true;
-
+                //
                 checkShowWeapon.Enabled = true;
                 groupLauch.Text = "Launch Controls - Connected!";
             }
@@ -96,16 +101,7 @@ namespace RTE_Tool
             MessageBox.Show("Tool made by JammingCat21"
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Special Thanks:" + Environment.NewLine + Environment.NewLine + "Heaventh" + Environment.NewLine + "Baked Muted" 
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.02.03.01.03", "Credits");
-        }
-        ////////////////////////////////////////////////////////
-        private void buttonMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            
         }
         ////////////////////////////////////////////////////////
         private void buttonSetFOV_Click(object sender, EventArgs e)

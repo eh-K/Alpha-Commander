@@ -165,7 +165,7 @@
             this.buttonCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCredits.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCredits.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCredits.Location = new System.Drawing.Point(208, 177);
+            this.buttonCredits.Location = new System.Drawing.Point(199, 201);
             this.buttonCredits.Name = "buttonCredits";
             this.buttonCredits.Size = new System.Drawing.Size(101, 23);
             this.buttonCredits.TabIndex = 4;
@@ -216,7 +216,7 @@
             // 
             this.groupCommands.Controls.Add(this.buttonSetFOV);
             this.groupCommands.Controls.Add(this.buttonNoClipGod);
-            this.groupCommands.Location = new System.Drawing.Point(202, 12);
+            this.groupCommands.Location = new System.Drawing.Point(199, 12);
             this.groupCommands.Name = "groupCommands";
             this.groupCommands.Size = new System.Drawing.Size(113, 83);
             this.groupCommands.TabIndex = 22;
@@ -244,7 +244,7 @@
             this.groupLauch.Controls.Add(this.buttonConnect);
             this.groupLauch.Controls.Add(this.textCBUFEntry);
             this.groupLauch.Controls.Add(this.buttonList);
-            this.groupLauch.Location = new System.Drawing.Point(12, 12);
+            this.groupLauch.Location = new System.Drawing.Point(9, 12);
             this.groupLauch.Name = "groupLauch";
             this.groupLauch.Size = new System.Drawing.Size(179, 83);
             this.groupLauch.TabIndex = 23;
@@ -257,7 +257,7 @@
             this.groupEntry.Controls.Add(this.buttonSendCommand);
             this.groupEntry.Controls.Add(this.textMapEntry);
             this.groupEntry.Controls.Add(this.buttonLoadMap);
-            this.groupEntry.Location = new System.Drawing.Point(12, 100);
+            this.groupEntry.Location = new System.Drawing.Point(9, 100);
             this.groupEntry.Name = "groupEntry";
             this.groupEntry.Size = new System.Drawing.Size(179, 131);
             this.groupEntry.TabIndex = 24;
@@ -267,7 +267,7 @@
             // groupOptions
             // 
             this.groupOptions.Controls.Add(this.checkShowWeapon);
-            this.groupOptions.Location = new System.Drawing.Point(202, 100);
+            this.groupOptions.Location = new System.Drawing.Point(199, 100);
             this.groupOptions.Name = "groupOptions";
             this.groupOptions.Size = new System.Drawing.Size(113, 71);
             this.groupOptions.TabIndex = 25;
@@ -278,7 +278,7 @@
             // 
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(321, 241);
+            this.ClientSize = new System.Drawing.Size(318, 235);
             this.Controls.Add(this.groupOptions);
             this.Controls.Add(this.groupEntry);
             this.Controls.Add(this.groupLauch);
@@ -292,7 +292,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.03";
+            this.Text = "Alpha Commander v1.04";
             this.groupCommands.ResumeLayout(false);
             this.groupLauch.ResumeLayout(false);
             this.groupLauch.PerformLayout();
