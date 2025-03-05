@@ -19,3 +19,8 @@ Only supports RGH consoles running the JRPC plugin.
 **Heaventh** 
 - Base code to even make a tool
 - uint textbox entry conversion
+
+# Disclaimer
+- I am not liable for any data loss, corruption, or hardware issues that may occur.
+- This tool is simply a command runner.
+- This tool may interact with experimental or prototype games that are not fully tested or supported.
