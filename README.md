@@ -1,5 +1,5 @@
 # Alpha-Commander
-**Alpha Commander** is an RTM tool that offers quick access for commands/map files on any build of COD on Xbox 360.
+RTM tool that offers quick access for commands/map files on any build of COD on Xbox 360.
 
 List of every **Cbuf_addText** can be found [HERE!](https://github.com/bandito52/all-COD-cats)
 
