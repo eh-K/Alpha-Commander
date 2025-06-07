@@ -121,6 +121,8 @@
     <value>~ List of Cbuf Offsets ~
 https://github.com/bandito52/all-COD-Cbuf_addTexts
 
+Paste into the textbox and simply enter your command!
+
 $ - Not tested.
 
 
@@ -134,11 +136,23 @@ $ - Not tested.
 	0x821DE9D8 	- $ Disc Campaign
 	0x82237C50 	- $ Disc MP
 
+	0x8219E9E0 	- March 27, 2007 default.xex
+	0x82183458 	- March 27, 2007 default_mp.xex
+
+	0x821B4E08 	- May 4, 2007 default.xex
+	0x82178810 	- May 4, 2007 default_mp.xex
+
 
 		WAW
 #################################################
 	0x82238978 	- $ Disc Campaign
 	0x8226C540 	- $ Disc MP
+
+	0x821E6568 	- March 20, 2007 default.xex (No maps load)
+	0x821AD6F0 	- March 20, 2007 default_mp.xex
+
+	0x82218DB8 	- May 11, 2007 defaultmp.xex
+	0x821D0BB8 	- May 11, 2007 default_mp.xex (No maps load)
 
 
 		MW2
@@ -181,8 +195,10 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x823BC588 	- $ Disc Campaign
 	0x82414A80 	- $ Disc MP
 
+	0x82385190 	- May 9, 2013 default.xex
 	0x82385190 	- May 9, 2013 default_mp.xex
 
+	0x823880F0 	- May 21, 2013 default.xex
 	0x823c3d70 	- May 21, 2013 default_mp.xex
 
 
@@ -191,6 +207,9 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x82408B70 	- $ Disc Campaign
 	0x824A2308 	- $ Disc MP
 
+	0x82406FB8 	- Sep 16, 2014 default.xex
+	0x824A1A48 	- Sep 16, 2014 default_mp.xex
+	0x826B5898 	- Sep 16, 2014 1-s1_sp.exe
 	0x82814018 	- Sep 16, 2014 2-s1_mp.exe</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

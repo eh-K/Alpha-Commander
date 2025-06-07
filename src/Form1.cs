@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using XDevkit;
 using JRPC_Client;
@@ -30,7 +21,66 @@ namespace RTE_Tool
             /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
             public static int helpButtonVisible = 0;
             public static int photoButtonPressed = 0;
-            public static int weaponShown = 1;
+            public static int showWeapon = 1;
+            public static int showHUD = 1;
+            public static int infiniteAmmo = 0;
+            public static int toggleAI = 1;
+
+            //List of every current public build
+
+            public static int build_NX1_Dec1811 = 0;
+            
+            public static int build_MW1_Mar2307 = 0;
+            public static int build_MW1_Apr1107 = 0;
+            public static int build_MW1_May0407 = 0;
+            public static int build_MW1_Jun1107 = 0;
+            public static int build_MW1_Jul2507 = 0;
+            public static int build_MW1_Sep0707 = 0;
+            public static int build_MW1_WrCrash = 0;
+
+            public static int build_WAW_Mar2007 = 0;
+            public static int build_WAW_Mar2707 = 0;
+            public static int build_WAW_May1107 = 0;
+            public static int build_WAW_Sep2508 = 0;
+            public static int build_WAW_Sep2708 = 0;
+            public static int build_WAW_Oct1608 = 0;
+
+            public static int build_MW2_Jul1309 = 0;
+            public static int build_MW2_Jul0910 = 0;
+
+            public static int build_BO1_Sep0410 = 0;
+            public static int build_BO1_Sep0610 = 0;
+            public static int build_BO1_Sep2610 = 0;
+            //Feb0211 Demo
+            public static int build_BO1_Feb0211 = 0;
+
+            public static int build_MW3_Sep1911 = 0;
+            public static int build_MW3_Oct1111 = 0;
+
+            public static int build_BO2_Nov1511 = 0;
+            public static int build_BO2_Jul2012 = 0;
+            public static int build_BO2_Jul2312 = 0;
+            public static int build_BO2_Aug2112 = 0;
+            public static int build_BO2_Oct0212 = 0;
+            public static int build_BO2_Oct1812 = 0;
+            public static int build_BO2_Feb2613 = 0;
+            public static int build_BO2_Jun1113 = 0;
+            public static int build_BO2_Aug1013 = 0;
+            public static int build_BO2_Sep0513 = 0;
+
+            public static int build_Gho_May0913 = 0;
+            public static int build_Gho_May2113 = 0;
+            public static int build_Gho_Jul1913 = 0;
+            public static int build_Gho_Aug2913 = 0;
+            public static int build_Gho_Sep0213 = 0;
+            public static int build_Gho_Sep0913 = 0;
+            public static int build_Gho_Sep2313 = 0;
+            //Mar0714 Demo
+            public static int build_Gho_Mar0714 = 0;
+
+            public static int build__AW_May0313 = 0;
+            public static int build__AW_Sep0414 = 0;
+            public static int build__AW_Sep1614 = 0;
         }
 
         public Form1()
@@ -63,9 +113,21 @@ namespace RTE_Tool
                 buttonSendCommand.Enabled = true;
                 buttonLoadMap.Enabled = true;
                 buttonSetFOV.Enabled = true;
-                buttonNoClipGod.Enabled = true;
+                buttonNoClip.Enabled = true;
+                buttonGodmode.Enabled = true;
+                buttonUFO.Enabled = true;
+                buttonSpeedDefault.Enabled = true;
+                buttonSpeed50.Enabled = true;
+                buttonSpeed1000.Enabled = true;
+                buttonSpeedTenThousand.Enabled = true;
+                buttonPauseGame.Enabled = true;
+                buttonSoftFreeze.Enabled = true;
                 //
                 checkShowWeapon.Enabled = true;
+                checkShowHUD.Enabled = true;
+                checkInfiniteAmmo.Enabled = true;
+                checkToggleAI.Enabled = true;
+                //
                 groupLauch.Text = "Launch Controls - Connected!";
             }
             else
@@ -92,15 +154,24 @@ namespace RTE_Tool
                 string tempCBUF = textCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, textCommandBox.Text);
-                textCommandBox.Clear();
             }
         }
         ////////////////////////////////////////////////////////
         private void buttonCredits_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tool made by JammingCat21"
-                + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Special Thanks:" + Environment.NewLine + Environment.NewLine + "Heaventh" + Environment.NewLine + "Baked Muted" 
-                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Version: 25.02.03.01.03", "Credits");
+            MessageBox.Show("Tool by JammingCat21"
+                + Environment.NewLine + Environment.NewLine + Environment.NewLine 
+                + "Special Thanks:" 
+                + Environment.NewLine + Environment.NewLine 
+                + "Heaventh" 
+                + Environment.NewLine 
+                + "Baked Muted" 
+                + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine 
+                + "Version: 1.05" 
+                + Environment.NewLine + Environment.NewLine
+                + "https://github.com/bandito52/Alpha-Commander"
+                , 
+                "Credits");
             
         }
         ////////////////////////////////////////////////////////
@@ -117,11 +188,10 @@ namespace RTE_Tool
                 string tempCBUF = textCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_fov 90");
-                textCommandBox.Clear();
             }
         }
         ////////////////////////////////////////////////////////
-        private void buttonNoClipGod_Click(object sender, EventArgs e)
+        private void buttonNoClip_Click(object sender, EventArgs e)
         {
             if (Xbox360 == null)
             {
@@ -134,8 +204,40 @@ namespace RTE_Tool
                 string tempCBUF = textCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "noclip");
+                //Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "god");
+                //textCommandBox.Clear();
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonUFO_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "ufo");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonGodmode_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "god");
-                textCommandBox.Clear();
             }
         }
         ////////////////////////////////////////////////////////
@@ -153,9 +255,72 @@ namespace RTE_Tool
                 string tempCBUF = textCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, completeMapName);
-                textCommandBox.Clear();
             }
 
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonSpeedDefault_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 190");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonSpeed50_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 50");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonSpeed1000_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 1000");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonSpeedTenThousand_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 10000");
+            }
         }
         ////////////////////////////////////////////////////////
         private void buttonList_Click(object sender, EventArgs e)
@@ -164,7 +329,7 @@ namespace RTE_Tool
             {
                 richTextGameList.Visible = true;
                 Global.helpButtonVisible = 1;
-                this.Width = (727);
+                this.Height = (663);
                 buttonList.BackColor = Color.Violet;
             }
 
@@ -172,30 +337,132 @@ namespace RTE_Tool
             {
                 richTextGameList.Visible = false;
                 Global.helpButtonVisible = 0;
-                this.Width = (337);
+                this.Height = (277);
                 buttonList.BackColor = Color.PaleTurquoise;
             }
         }
+        ////////////////////////////////////////////////////////
+        private void buttonPauseGame_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "pause");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void buttonSoftFreeze_Click(object sender, EventArgs e)
+        {
+            if (Xbox360 == null)
+            {
+                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                return;
+            }
+
+            else
+            {
+                string tempCBUF = textCBUFEntry.Text;
+
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 1");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        
+
         ////////////////////////////////////////////////////////
         ////                                                ////
         ////                  Check Boxes                   ////
         ////                                                ////
         ////////////////////////////////////////////////////////
+        
+
         private void checkShowWeapon_CheckedChanged(object sender, EventArgs e)
         {
-            if (Global.weaponShown == 1)
+            if (Global.showWeapon == 1)
             {
-                Global.weaponShown = 0;
+                Global.showWeapon = 0;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 0");
             }
 
             else
             {
-                Global.weaponShown = 1;
+                Global.showWeapon = 1;
                 string tempCBUF = textCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 1");
             }
         }
+        ////////////////////////////////////////////////////////
+        private void checkShowHUD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Global.showHUD == 1)
+            {
+                Global.showHUD = 0;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
+            }
+
+            else
+            {
+                Global.showHUD = 1;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void checkInfiniteAmmo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Global.infiniteAmmo == 1)
+            {
+                Global.infiniteAmmo = 0;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "player_sustainAmmo 0");
+            }
+
+            else
+            {
+                Global.infiniteAmmo = 1;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "player_sustainAmmo 1");
+            }
+        }
+        ////////////////////////////////////////////////////////
+        private void checkToggleAI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Global.toggleAI == 1)
+            {
+                Global.toggleAI = 0;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_ai 0");
+            }
+
+            else
+            {
+                Global.toggleAI = 1;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_ai 1");
+            }
+        }
+
+        private void buttonWarning_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("I am not liable for any data loss, corruption, or hardware issues that may occur."
+                + Environment.NewLine + Environment.NewLine
+                + "This tool is simply a command runner."
+                + Environment.NewLine + Environment.NewLine
+                + "Use commands responsibly."
+                + Environment.NewLine + Environment.NewLine
+                ,
+                "Disclaimer");
+
+        }
+        ////////////////////////////////////////////////////////
     }
 }
