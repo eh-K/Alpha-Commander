@@ -11,9 +11,8 @@ Only supports RGH consoles running the JRPC plugin.
 
 > - Simply paste the Cbuf_addText offset
 > - Load any map files(that aren't broke)
-> - Enter commands
-> - ~Photo Mode where all UI is toggable(Not recommended on retail builds)~
-> - Quick commands such as FOV and noClip/God for debug versions.
+> - Quick/Enterable commands for easy access.
+> - Makes checking prototypes much quicker.
 
 # Credits
 **Heaventh** 
