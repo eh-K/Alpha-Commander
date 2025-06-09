@@ -55,10 +55,11 @@
             this.buttonSpeedDefault = new System.Windows.Forms.Button();
             this.checkInfiniteAmmo = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkFreezeClient = new System.Windows.Forms.CheckBox();
             this.checkToggleAI = new System.Windows.Forms.CheckBox();
-            this.buttonSoftFreeze = new System.Windows.Forms.Button();
             this.buttonPauseGame = new System.Windows.Forms.Button();
             this.buttonWarning = new System.Windows.Forms.Button();
+            this.buttonLeaveSession = new System.Windows.Forms.Button();
             this.groupCommands.SuspendLayout();
             this.groupLauch.SuspendLayout();
             this.groupEntry.SuspendLayout();
@@ -200,6 +201,7 @@
             this.textCBUFEntry.TabIndex = 19;
             this.textCBUFEntry.Text = "Enter Cbuf";
             this.textCBUFEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textCBUFEntry.Enter += new System.EventHandler(this.textCBUFEntry_Enter);
             // 
             // richTextGameList
             // 
@@ -422,10 +424,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonLeaveSession);
+            this.groupBox2.Controls.Add(this.checkFreezeClient);
             this.groupBox2.Controls.Add(this.checkToggleAI);
             this.groupBox2.Controls.Add(this.checkShowHUD);
             this.groupBox2.Controls.Add(this.checkInfiniteAmmo);
-            this.groupBox2.Controls.Add(this.buttonSoftFreeze);
             this.groupBox2.Controls.Add(this.buttonPauseGame);
             this.groupBox2.Controls.Add(this.checkShowWeapon);
             this.groupBox2.Location = new System.Drawing.Point(203, 12);
@@ -434,6 +437,20 @@
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Game Options";
+            // 
+            // checkFreezeClient
+            // 
+            this.checkFreezeClient.AutoSize = true;
+            this.checkFreezeClient.Enabled = false;
+            this.checkFreezeClient.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkFreezeClient.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.checkFreezeClient.Location = new System.Drawing.Point(6, 102);
+            this.checkFreezeClient.Name = "checkFreezeClient";
+            this.checkFreezeClient.Size = new System.Drawing.Size(93, 19);
+            this.checkFreezeClient.TabIndex = 23;
+            this.checkFreezeClient.Text = "Freeze Client";
+            this.checkFreezeClient.UseVisualStyleBackColor = true;
+            this.checkFreezeClient.CheckedChanged += new System.EventHandler(this.checkFreezeClient_CheckedChanged);
             // 
             // checkToggleAI
             // 
@@ -451,21 +468,6 @@
             this.checkToggleAI.UseVisualStyleBackColor = true;
             this.checkToggleAI.CheckedChanged += new System.EventHandler(this.checkToggleAI_CheckedChanged);
             // 
-            // buttonSoftFreeze
-            // 
-            this.buttonSoftFreeze.BackColor = System.Drawing.Color.Silver;
-            this.buttonSoftFreeze.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSoftFreeze.Enabled = false;
-            this.buttonSoftFreeze.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSoftFreeze.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSoftFreeze.Location = new System.Drawing.Point(6, 51);
-            this.buttonSoftFreeze.Name = "buttonSoftFreeze";
-            this.buttonSoftFreeze.Size = new System.Drawing.Size(101, 23);
-            this.buttonSoftFreeze.TabIndex = 16;
-            this.buttonSoftFreeze.Text = "Soft Freeze";
-            this.buttonSoftFreeze.UseVisualStyleBackColor = false;
-            this.buttonSoftFreeze.Click += new System.EventHandler(this.buttonSoftFreeze_Click);
-            // 
             // buttonPauseGame
             // 
             this.buttonPauseGame.BackColor = System.Drawing.Color.Silver;
@@ -477,7 +479,7 @@
             this.buttonPauseGame.Name = "buttonPauseGame";
             this.buttonPauseGame.Size = new System.Drawing.Size(101, 23);
             this.buttonPauseGame.TabIndex = 15;
-            this.buttonPauseGame.Text = "Pause";
+            this.buttonPauseGame.Text = "Pause Game";
             this.buttonPauseGame.UseVisualStyleBackColor = false;
             this.buttonPauseGame.Click += new System.EventHandler(this.buttonPauseGame_Click);
             // 
@@ -494,6 +496,21 @@
             this.buttonWarning.Text = "!";
             this.buttonWarning.UseVisualStyleBackColor = false;
             this.buttonWarning.Click += new System.EventHandler(this.buttonWarning_Click);
+            // 
+            // buttonLeaveSession
+            // 
+            this.buttonLeaveSession.BackColor = System.Drawing.Color.Silver;
+            this.buttonLeaveSession.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLeaveSession.Enabled = false;
+            this.buttonLeaveSession.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLeaveSession.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLeaveSession.Location = new System.Drawing.Point(6, 51);
+            this.buttonLeaveSession.Name = "buttonLeaveSession";
+            this.buttonLeaveSession.Size = new System.Drawing.Size(101, 23);
+            this.buttonLeaveSession.TabIndex = 24;
+            this.buttonLeaveSession.Text = "Leave Session";
+            this.buttonLeaveSession.UseVisualStyleBackColor = false;
+            this.buttonLeaveSession.Click += new System.EventHandler(this.buttonLeaveSession_Click);
             // 
             // Form1
             // 
@@ -515,7 +532,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.05";
+            this.Text = "Alpha Commander v1.06";
             this.groupCommands.ResumeLayout(false);
             this.groupLauch.ResumeLayout(false);
             this.groupLauch.PerformLayout();
@@ -557,10 +574,11 @@
         private System.Windows.Forms.CheckBox checkShowHUD;
         private System.Windows.Forms.CheckBox checkInfiniteAmmo;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonSoftFreeze;
         private System.Windows.Forms.Button buttonPauseGame;
         private System.Windows.Forms.CheckBox checkToggleAI;
         private System.Windows.Forms.Button buttonWarning;
+        private System.Windows.Forms.CheckBox checkFreezeClient;
+        private System.Windows.Forms.Button buttonLeaveSession;
     }
 }
 

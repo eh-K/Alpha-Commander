@@ -5,7 +5,7 @@ using XDevkit;
 using JRPC_Client;
 
 
-//337,277
+//596,277
 
 namespace RTE_Tool
 {
@@ -25,8 +25,11 @@ namespace RTE_Tool
             public static int showHUD = 1;
             public static int infiniteAmmo = 0;
             public static int toggleAI = 1;
+            public static int clientFroze = 0;
+            public static int initialized = 0;
 
             //List of every current public build
+            //Ground work for possibly adding a drop-down. Idk
 
             public static int build_NX1_Dec1811 = 0;
             
@@ -121,12 +124,13 @@ namespace RTE_Tool
                 buttonSpeed1000.Enabled = true;
                 buttonSpeedTenThousand.Enabled = true;
                 buttonPauseGame.Enabled = true;
-                buttonSoftFreeze.Enabled = true;
+                buttonLeaveSession.Enabled = true;
                 //
                 checkShowWeapon.Enabled = true;
                 checkShowHUD.Enabled = true;
                 checkInfiniteAmmo.Enabled = true;
                 checkToggleAI.Enabled = true;
+                checkFreezeClient.Enabled = true;
                 //
                 groupLauch.Text = "Launch Controls - Connected!";
             }
@@ -167,7 +171,7 @@ namespace RTE_Tool
                 + Environment.NewLine 
                 + "Baked Muted" 
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine 
-                + "Version: 1.05" 
+                + "Version: 1.06" 
                 + Environment.NewLine + Environment.NewLine
                 + "https://github.com/bandito52/Alpha-Commander"
                 , 
@@ -358,7 +362,7 @@ namespace RTE_Tool
             }
         }
         ////////////////////////////////////////////////////////
-        private void buttonSoftFreeze_Click(object sender, EventArgs e)
+        private void buttonLeaveSession_Click(object sender, EventArgs e)
         {
             if (Xbox360 == null)
             {
@@ -370,18 +374,18 @@ namespace RTE_Tool
             {
                 string tempCBUF = textCBUFEntry.Text;
 
-                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 1");
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "disconnect");
             }
         }
         ////////////////////////////////////////////////////////
-        
+
 
         ////////////////////////////////////////////////////////
         ////                                                ////
         ////                  Check Boxes                   ////
         ////                                                ////
         ////////////////////////////////////////////////////////
-        
+
 
         private void checkShowWeapon_CheckedChanged(object sender, EventArgs e)
         {
@@ -463,6 +467,33 @@ namespace RTE_Tool
                 "Disclaimer");
 
         }
-        ////////////////////////////////////////////////////////
+
+        private void checkFreezeClient_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Global.clientFroze == 1)
+            {
+                Global.clientFroze = 0;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 0");
+            }
+
+            else
+            {
+                Global.clientFroze = 1;
+                string tempCBUF = textCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 1");
+            }
+        }
+
+        private void textCBUFEntry_Enter(object sender, EventArgs e)
+        {
+            if (Global.initialized == 0)
+            {
+                textCBUFEntry.Clear();
+                Global.initialized = 1;
+            }
+
+            //Xbox360.XboxAutomation.DisconnectController(0, XBOX_USER);
+        }
     }
 }
