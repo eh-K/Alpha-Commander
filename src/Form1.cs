@@ -3,9 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using XDevkit;
 using JRPC_Client;
+using System.Globalization;
 
 
-//596,277
+
+//724,277
 
 namespace RTE_Tool
 {
@@ -27,69 +29,25 @@ namespace RTE_Tool
             public static int toggleAI = 1;
             public static int clientFroze = 0;
             public static int initialized = 0;
-
-            //List of every current public build
-            //Ground work for possibly adding a drop-down. Idk
-
-            public static int build_NX1_Dec1811 = 0;
-            
-            public static int build_MW1_Mar2307 = 0;
-            public static int build_MW1_Apr1107 = 0;
-            public static int build_MW1_May0407 = 0;
-            public static int build_MW1_Jun1107 = 0;
-            public static int build_MW1_Jul2507 = 0;
-            public static int build_MW1_Sep0707 = 0;
-            public static int build_MW1_WrCrash = 0;
-
-            public static int build_WAW_Mar2007 = 0;
-            public static int build_WAW_Mar2707 = 0;
-            public static int build_WAW_May1107 = 0;
-            public static int build_WAW_Sep2508 = 0;
-            public static int build_WAW_Sep2708 = 0;
-            public static int build_WAW_Oct1608 = 0;
-
-            public static int build_MW2_Jul1309 = 0;
-            public static int build_MW2_Jul0910 = 0;
-
-            public static int build_BO1_Sep0410 = 0;
-            public static int build_BO1_Sep0610 = 0;
-            public static int build_BO1_Sep2610 = 0;
-            //Feb0211 Demo
-            public static int build_BO1_Feb0211 = 0;
-
-            public static int build_MW3_Sep1911 = 0;
-            public static int build_MW3_Oct1111 = 0;
-
-            public static int build_BO2_Nov1511 = 0;
-            public static int build_BO2_Jul2012 = 0;
-            public static int build_BO2_Jul2312 = 0;
-            public static int build_BO2_Aug2112 = 0;
-            public static int build_BO2_Oct0212 = 0;
-            public static int build_BO2_Oct1812 = 0;
-            public static int build_BO2_Feb2613 = 0;
-            public static int build_BO2_Jun1113 = 0;
-            public static int build_BO2_Aug1013 = 0;
-            public static int build_BO2_Sep0513 = 0;
-
-            public static int build_Gho_May0913 = 0;
-            public static int build_Gho_May2113 = 0;
-            public static int build_Gho_Jul1913 = 0;
-            public static int build_Gho_Aug2913 = 0;
-            public static int build_Gho_Sep0213 = 0;
-            public static int build_Gho_Sep0913 = 0;
-            public static int build_Gho_Sep2313 = 0;
-            //Mar0714 Demo
-            public static int build_Gho_Mar0714 = 0;
-
-            public static int build__AW_May0313 = 0;
-            public static int build__AW_Sep0414 = 0;
-            public static int build__AW_Sep1614 = 0;
+            public static int thirdPerson = 0;
         }
 
         public Form1()
         {
             InitializeComponent();
             Nightly.Caller();
+
+
+
+            int monthNumber = DateTime.Now.Month;
+
+            if (monthNumber == 10)
+            {
+                buttonConnect.BackColor = Color.Orange;
+                this.BackColor = Color.FromArgb(113, 93, 168);
+            }
+
+
         }
 
         public class Nightly
@@ -109,9 +67,11 @@ namespace RTE_Tool
             if (Xbox360.Connect(out Xbox360))
             {
                 Nightly.Caller();
-                Xbox360.XNotify("Tool Connected!");
-                textCommandBox.Enabled = true;
-                textMapEntry.Enabled = true;
+                Xbox360.XNotify("Alpha Commander Connected!");
+                textBoxCommands.Enabled = true;
+                textBoxMapName.Enabled = true;
+                textBoxMovementSpeed.Enabled = true;
+                textBoxJumpHeight.Enabled = true;
                 //
                 buttonSendCommand.Enabled = true;
                 buttonLoadMap.Enabled = true;
@@ -120,23 +80,29 @@ namespace RTE_Tool
                 buttonGodmode.Enabled = true;
                 buttonUFO.Enabled = true;
                 buttonSpeedDefault.Enabled = true;
-                buttonSpeed50.Enabled = true;
-                buttonSpeed1000.Enabled = true;
-                buttonSpeedTenThousand.Enabled = true;
                 buttonPauseGame.Enabled = true;
                 buttonLeaveSession.Enabled = true;
+                buttonJumpDefault.Enabled = true;
                 //
                 checkShowWeapon.Enabled = true;
                 checkShowHUD.Enabled = true;
                 checkInfiniteAmmo.Enabled = true;
                 checkToggleAI.Enabled = true;
                 checkFreezeClient.Enabled = true;
+                checkThirdPerson.Enabled = true;
                 //
-                groupLauch.Text = "Launch Controls - Connected!";
+                groupLaunch.Text = "Launch Controls - Connected!";
+                buttonConnect.BackColor = Color.LightGreen;
             }
             else
             {
-                MessageBox.Show("Tool is not connected.", "Tool Alert");
+                buttonConnect.BackColor = Color.Salmon;
+                MessageBox.Show("Tool is not connected."
+                + Environment.NewLine + Environment.NewLine
+                + "Is Xbox Neighborhood setup?"
+                + Environment.NewLine + Environment.NewLine
+                + "Is your RGH the Default Console?"
+                , "Tool Alert");
                 return;
             }
         }
@@ -155,9 +121,9 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
-                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, textCommandBox.Text);
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, textBoxCommands.Text);
             }
         }
         ////////////////////////////////////////////////////////
@@ -171,7 +137,7 @@ namespace RTE_Tool
                 + Environment.NewLine 
                 + "Baked Muted" 
                 + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine 
-                + "Version: 1.06" 
+                + "Version: 1.07" 
                 + Environment.NewLine + Environment.NewLine
                 + "https://github.com/bandito52/Alpha-Commander"
                 , 
@@ -189,7 +155,7 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_fov 90");
             }
@@ -205,7 +171,7 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "noclip");
                 //Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "god");
@@ -223,7 +189,7 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "ufo");
             }
@@ -239,7 +205,7 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "god");
             }
@@ -255,8 +221,8 @@ namespace RTE_Tool
 
             else
             {
-                string completeMapName = ("map " + textMapEntry.Text);
-                string tempCBUF = textCBUFEntry.Text;
+                string completeMapName = ("map " + textBoxMapName.Text);
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, completeMapName);
             }
@@ -273,13 +239,13 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 190");
             }
         }
         ////////////////////////////////////////////////////////
-        private void buttonSpeed50_Click(object sender, EventArgs e)
+        private void buttonJumpDefault_Click(object sender, EventArgs e)
         {
             if (Xbox360 == null)
             {
@@ -289,44 +255,11 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
-                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 50");
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "jump_height 39");
             }
         }
-        ////////////////////////////////////////////////////////
-        private void buttonSpeed1000_Click(object sender, EventArgs e)
-        {
-            if (Xbox360 == null)
-            {
-                MessageBox.Show("Tool is not connected.", "Tool Alert");
-                return;
-            }
-
-            else
-            {
-                string tempCBUF = textCBUFEntry.Text;
-
-                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 1000");
-            }
-        }
-        ////////////////////////////////////////////////////////
-        private void buttonSpeedTenThousand_Click(object sender, EventArgs e)
-        {
-            if (Xbox360 == null)
-            {
-                MessageBox.Show("Tool is not connected.", "Tool Alert");
-                return;
-            }
-
-            else
-            {
-                string tempCBUF = textCBUFEntry.Text;
-
-                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed 10000");
-            }
-        }
-        ////////////////////////////////////////////////////////
         private void buttonList_Click(object sender, EventArgs e)
         {
             if (Global.helpButtonVisible == 0)
@@ -356,7 +289,7 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "pause");
             }
@@ -372,12 +305,25 @@ namespace RTE_Tool
 
             else
             {
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
 
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "disconnect");
             }
         }
         ////////////////////////////////////////////////////////
+        private void buttonWarning_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("I am not liable for any data loss, corruption, or hardware issues that may occur."
+                + Environment.NewLine + Environment.NewLine
+                + "This tool is simply a command runner."
+                + Environment.NewLine + Environment.NewLine
+                + "Use commands responsibly."
+                + Environment.NewLine + Environment.NewLine
+                ,
+                "Disclaimer");
+
+        }
+
 
 
         ////////////////////////////////////////////////////////
@@ -392,14 +338,14 @@ namespace RTE_Tool
             if (Global.showWeapon == 1)
             {
                 Global.showWeapon = 0;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 0");
             }
 
             else
             {
                 Global.showWeapon = 1;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_drawGun 1");
             }
         }
@@ -409,14 +355,14 @@ namespace RTE_Tool
             if (Global.showHUD == 1)
             {
                 Global.showHUD = 0;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 0");
             }
 
             else
             {
                 Global.showHUD = 1;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_draw2D 1");
             }
         }
@@ -426,14 +372,14 @@ namespace RTE_Tool
             if (Global.infiniteAmmo == 1)
             {
                 Global.infiniteAmmo = 0;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "player_sustainAmmo 0");
             }
 
             else
             {
                 Global.infiniteAmmo = 1;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "player_sustainAmmo 1");
             }
         }
@@ -443,57 +389,180 @@ namespace RTE_Tool
             if (Global.toggleAI == 1)
             {
                 Global.toggleAI = 0;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_ai 0");
             }
 
             else
             {
                 Global.toggleAI = 1;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_ai 1");
             }
         }
-
-        private void buttonWarning_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("I am not liable for any data loss, corruption, or hardware issues that may occur."
-                + Environment.NewLine + Environment.NewLine
-                + "This tool is simply a command runner."
-                + Environment.NewLine + Environment.NewLine
-                + "Use commands responsibly."
-                + Environment.NewLine + Environment.NewLine
-                ,
-                "Disclaimer");
-
-        }
-
         private void checkFreezeClient_CheckedChanged(object sender, EventArgs e)
         {
             if (Global.clientFroze == 1)
             {
                 Global.clientFroze = 0;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 0");
             }
 
             else
             {
                 Global.clientFroze = 1;
-                string tempCBUF = textCBUFEntry.Text;
+                string tempCBUF = textBoxCBUFEntry.Text;
                 Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cl_paused 1");
             }
         }
+        private void checkThirdPerson_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Global.thirdPerson == 1)
+            {
+                Global.thirdPerson = 0;
+                string tempCBUF = textBoxCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_thirdperson 0");
+            }
 
-        private void textCBUFEntry_Enter(object sender, EventArgs e)
+            else
+            {
+                Global.thirdPerson = 1;
+                string tempCBUF = textBoxCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "cg_thirdperson 1");
+            }
+        }
+
+
+        ////////////////////////////////////////////////////////
+        ////                                                ////
+        ////                      Events                    ////
+        ////                                                ////
+        ////////////////////////////////////////////////////////
+
+
+        //CBUF box clears when user clicks into it.
+        private void textBoxCBUFEntry_Enter(object sender, EventArgs e)
         {
             if (Global.initialized == 0)
             {
-                textCBUFEntry.Clear();
+                textBoxCBUFEntry.Clear();
                 Global.initialized = 1;
             }
+            
+        }
 
-            //Xbox360.XboxAutomation.DisconnectController(0, XBOX_USER);
+        private void textBoxCBUFEntry_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxCBUFEntry.SelectAll();
+        }
+
+
+        //Imitates a button click if you click ENTER while in the textbox.
+        private void textBoxCommands_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                buttonSendCommand_Click(this, new EventArgs());
+                textBoxCommands.BackColor = Color.LightGreen;
+            }
+        }
+        private void textBoxCommands_Leave(object sender, EventArgs e)
+        {
+            textBoxCommands.BackColor = Color.LightYellow;
+        }
+
+
+        //Imitates a button click if you click ENTER while in the textbox.
+        private void textBoxMapName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                buttonLoadMap_Click(this, new EventArgs());
+                textBoxMapName.BackColor = Color.LightGreen;
+                //MessageBox.Show("Success received", "DEBUG");
+            }
+        }
+        private void textBoxMapName_Leave(object sender, EventArgs e)
+        {
+            textBoxMapName.BackColor = Color.LightYellow;
+        }
+
+
+        private void textBoxMovementSpeed_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                string tempCBUF = textBoxCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "g_speed " + textBoxMovementSpeed.Text);
+
+                textBoxMovementSpeed.BackColor = Color.LightGreen;
+            }
+        }
+        private void textBoxMovementSpeed_Leave(object sender, EventArgs e)
+        {
+            textBoxMovementSpeed.BackColor = Color.LightYellow;
+        }
+
+
+
+        private void textBoxJumpHeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                string tempCBUF = textBoxCBUFEntry.Text;
+                Xbox360.CallVoid(uint.Parse(tempCBUF.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber), 0, "jump_height " + textBoxJumpHeight.Text);
+
+                textBoxJumpHeight.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void textBoxJumpHeight_Leave(object sender, EventArgs e)
+        {
+            textBoxJumpHeight.BackColor = Color.LightYellow;
+        }
+
+        private void textBoxCommands_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxCommands.SelectAll();
+        }
+
+        private void textBoxMapName_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxMapName.SelectAll();
+        }
+
+        private void textBoxMovementSpeed_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxMovementSpeed.SelectAll();
+        }
+
+        private void textBoxJumpHeight_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxJumpHeight.SelectAll();
         }
     }
 }
+
+
+//thirdperson
+//jump height
+//can press ENTER on textboxes
+//Easter Eggs
+//Simplified Movement Speed and JumpHeight selection
+
+
+
+//Improved Feedback with UI
+//Pressing ENTER turns the textbox Green
+//Clicking into the textbox will highlight all text
