@@ -134,7 +134,7 @@
             this.buttonSetFOV.Enabled = false;
             this.buttonSetFOV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSetFOV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSetFOV.Location = new System.Drawing.Point(6, 21);
+            this.buttonSetFOV.Location = new System.Drawing.Point(6, 22);
             this.buttonSetFOV.Name = "buttonSetFOV";
             this.buttonSetFOV.Size = new System.Drawing.Size(101, 23);
             this.buttonSetFOV.TabIndex = 11;
@@ -219,6 +219,7 @@
             this.textBoxCBUFEntry.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxCBUFEntry_MouseClick);
             this.textBoxCBUFEntry.Enter += new System.EventHandler(this.textBoxCBUFEntry_Enter);
             this.textBoxCBUFEntry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCBUFEntry_KeyDown);
+            this.textBoxCBUFEntry.Leave += new System.EventHandler(this.textBoxCBUFEntry_Leave);
             // 
             // richTextGameList
             // 
@@ -583,7 +584,8 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alpha Commander v1.07";
+            this.Text = "Alpha Commander v1.08";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.groupCommands.ResumeLayout(false);
             this.groupLaunch.ResumeLayout(false);
             this.groupLaunch.PerformLayout();

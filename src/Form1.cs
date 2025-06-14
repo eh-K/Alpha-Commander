@@ -5,7 +5,7 @@ using XDevkit;
 using JRPC_Client;
 
 //  Alpha Commander Source
-//  1.07 - June 14, 2025
+//  1.08 - June 14, 2025
 
 //724,277
 
@@ -20,7 +20,7 @@ namespace RTE_Tool
             //
             //June 9 2025 - 1.07b
             //Nightly builds are deprecated. Releases will be pushed out once a week instead.
-            //
+            // 
             public static int nCheck = 0;
             public static string nVersion = "x003";
             public static string nTitle = "Nightly Build " + nVersion;
@@ -34,6 +34,7 @@ namespace RTE_Tool
             public static int clientFroze = 0;
             public static int initialized = 0;
             public static int thirdPerson = 0;
+            public static int boxEntered = 0;
         }
 
         public Form1()
@@ -475,7 +476,11 @@ namespace RTE_Tool
 
         private void textBoxCBUFEntry_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxCBUFEntry.SelectAll();
+            if (Global.boxEntered == 0)
+            {
+                textBoxCBUFEntry.SelectAll();
+                Global.boxEntered = 1;
+            }   
         }
 
 
@@ -493,6 +498,7 @@ namespace RTE_Tool
         private void textBoxCommands_Leave(object sender, EventArgs e)
         {
             textBoxCommands.BackColor = Color.LightYellow;
+            Global.boxEntered = 0;
         }
 
 
@@ -511,6 +517,7 @@ namespace RTE_Tool
         private void textBoxMapName_Leave(object sender, EventArgs e)
         {
             textBoxMapName.BackColor = Color.LightYellow;
+            Global.boxEntered = 0;
         }
 
 
@@ -530,6 +537,7 @@ namespace RTE_Tool
         private void textBoxMovementSpeed_Leave(object sender, EventArgs e)
         {
             textBoxMovementSpeed.BackColor = Color.LightYellow;
+            Global.boxEntered = 0;
         }
 
 
@@ -567,26 +575,53 @@ namespace RTE_Tool
         private void textBoxJumpHeight_Leave(object sender, EventArgs e)
         {
             textBoxJumpHeight.BackColor = Color.LightYellow;
+            Global.boxEntered = 0;
+        }
+
+        private void textBoxCBUFEntry_Leave(object sender, EventArgs e)
+        {
+            Global.boxEntered = 0;
         }
 
         private void textBoxCommands_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxCommands.SelectAll();
+            if (Global.boxEntered == 0)
+            {
+                textBoxCommands.SelectAll();
+                Global.boxEntered = 1;
+            }
         }
 
         private void textBoxMapName_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxMapName.SelectAll();
+            if (Global.boxEntered == 0)
+            {
+                textBoxMapName.SelectAll();
+                Global.boxEntered = 1;
+            }
         }
 
         private void textBoxMovementSpeed_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxMovementSpeed.SelectAll();
+            if (Global.boxEntered == 0)
+            {
+                textBoxMovementSpeed.SelectAll();
+                Global.boxEntered = 1;
+            }
         }
 
         private void textBoxJumpHeight_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxJumpHeight.SelectAll();
+            if (Global.boxEntered == 0)
+            {
+                textBoxJumpHeight.SelectAll();
+                Global.boxEntered = 1;
+            }
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Global.boxEntered = 0;
         }
     }
 }
