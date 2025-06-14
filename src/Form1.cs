@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using XDevkit;
 using JRPC_Client;
-using System.Globalization;
 
-
+//  Alpha Commander Source
+//  1.07 - June 14, 2025
 
 //724,277
 
@@ -17,6 +17,10 @@ namespace RTE_Tool
 
         public static class Global
         {
+            //
+            //June 9 2025 - 1.07b
+            //Nightly builds are deprecated. Releases will be pushed out once a week instead.
+            //
             public static int nCheck = 0;
             public static string nVersion = "x003";
             public static string nTitle = "Nightly Build " + nVersion;
@@ -43,13 +47,30 @@ namespace RTE_Tool
 
             if (monthNumber == 10)
             {
-                buttonConnect.BackColor = Color.Orange;
-                this.BackColor = Color.FromArgb(113, 93, 168);
+                //bland purple
+                this.BackColor = Color.FromArgb(120, 110, 160);
+                //halloween orange
+                buttonConnect.BackColor = Color.FromArgb(218, 159, 7);
+                buttonSendCommand.BackColor = Color.FromArgb(218, 159, 7);
+                buttonLoadMap.BackColor = Color.FromArgb(218, 159, 7);
+                buttonPauseGame.BackColor = Color.FromArgb(218, 159, 7);
+                buttonLeaveSession.BackColor = Color.FromArgb(218, 159, 7);
+                buttonSetFOV.BackColor = Color.FromArgb(218, 159, 7);
+                buttonNoClip.BackColor = Color.FromArgb(218, 159, 7);
+                buttonUFO.BackColor = Color.FromArgb(218, 159, 7);
+                buttonGodmode.BackColor = Color.FromArgb(218, 159, 7);
+                buttonSpeedDefault.BackColor = Color.FromArgb(218, 159, 7);
+                buttonJumpDefault.BackColor = Color.FromArgb(218, 159, 7);
+                buttonCredits.BackColor = Color.FromArgb(218, 159, 7);
             }
 
 
         }
 
+        //
+        //June 9 2025 - 1.07b
+        //Nightly builds are deprecated. Releases will be pushed out once a week instead.
+        //
         public class Nightly
         {
             public static void Caller()
@@ -527,6 +548,22 @@ namespace RTE_Tool
             }
         }
 
+        private void textBoxCBUFEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                MessageBox.Show
+                    (
+                    "No need to press ENTER."
+                    + Environment.NewLine + Environment.NewLine
+                    +"Simply paste and continue!"
+                    ,"Tool Alert");
+            }
+        }
+
         private void textBoxJumpHeight_Leave(object sender, EventArgs e)
         {
             textBoxJumpHeight.BackColor = Color.LightYellow;
@@ -554,15 +591,3 @@ namespace RTE_Tool
     }
 }
 
-
-//thirdperson
-//jump height
-//can press ENTER on textboxes
-//Easter Eggs
-//Simplified Movement Speed and JumpHeight selection
-
-
-
-//Improved Feedback with UI
-//Pressing ENTER turns the textbox Green
-//Clicking into the textbox will highlight all text

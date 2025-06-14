@@ -62,6 +62,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxJumpHeight = new System.Windows.Forms.TextBox();
             this.buttonJumpDefault = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.groupCommands.SuspendLayout();
             this.groupLaunch.SuspendLayout();
             this.groupEntry.SuspendLayout();
@@ -149,7 +150,7 @@
             this.buttonNoClip.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNoClip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNoClip.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonNoClip.Location = new System.Drawing.Point(6, 50);
+            this.buttonNoClip.Location = new System.Drawing.Point(6, 109);
             this.buttonNoClip.Name = "buttonNoClip";
             this.buttonNoClip.Size = new System.Drawing.Size(101, 23);
             this.buttonNoClip.TabIndex = 12;
@@ -194,9 +195,9 @@
             this.buttonCredits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCredits.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCredits.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCredits.Location = new System.Drawing.Point(593, 208);
+            this.buttonCredits.Location = new System.Drawing.Point(465, 208);
             this.buttonCredits.Name = "buttonCredits";
-            this.buttonCredits.Size = new System.Drawing.Size(78, 23);
+            this.buttonCredits.Size = new System.Drawing.Size(72, 23);
             this.buttonCredits.TabIndex = 4;
             this.buttonCredits.Text = "Credits";
             this.buttonCredits.UseVisualStyleBackColor = false;
@@ -217,11 +218,12 @@
             this.textBoxCBUFEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCBUFEntry.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxCBUFEntry_MouseClick);
             this.textBoxCBUFEntry.Enter += new System.EventHandler(this.textBoxCBUFEntry_Enter);
+            this.textBoxCBUFEntry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCBUFEntry_KeyDown);
             // 
             // richTextGameList
             // 
             this.richTextGameList.BackColor = System.Drawing.SystemColors.Info;
-            this.richTextGameList.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextGameList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextGameList.Location = new System.Drawing.Point(9, 252);
             this.richTextGameList.Name = "richTextGameList";
             this.richTextGameList.ReadOnly = true;
@@ -235,7 +237,7 @@
             this.buttonList.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonList.Cursor = System.Windows.Forms.Cursors.Help;
             this.buttonList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonList.Location = new System.Drawing.Point(11, 50);
             this.buttonList.Name = "buttonList";
             this.buttonList.Size = new System.Drawing.Size(23, 23);
@@ -250,9 +252,10 @@
             this.groupCommands.Controls.Add(this.buttonUFO);
             this.groupCommands.Controls.Add(this.buttonSetFOV);
             this.groupCommands.Controls.Add(this.buttonNoClip);
+            this.groupCommands.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupCommands.Location = new System.Drawing.Point(331, 12);
             this.groupCommands.Name = "groupCommands";
-            this.groupCommands.Size = new System.Drawing.Size(113, 138);
+            this.groupCommands.Size = new System.Drawing.Size(113, 172);
             this.groupCommands.TabIndex = 22;
             this.groupCommands.TabStop = false;
             this.groupCommands.Text = "Quick Commands";
@@ -265,7 +268,7 @@
             this.buttonGodmode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonGodmode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGodmode.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGodmode.Location = new System.Drawing.Point(6, 108);
+            this.buttonGodmode.Location = new System.Drawing.Point(6, 51);
             this.buttonGodmode.Name = "buttonGodmode";
             this.buttonGodmode.Size = new System.Drawing.Size(101, 23);
             this.buttonGodmode.TabIndex = 14;
@@ -281,7 +284,7 @@
             this.buttonUFO.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonUFO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUFO.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonUFO.Location = new System.Drawing.Point(6, 79);
+            this.buttonUFO.Location = new System.Drawing.Point(6, 80);
             this.buttonUFO.Name = "buttonUFO";
             this.buttonUFO.Size = new System.Drawing.Size(101, 23);
             this.buttonUFO.TabIndex = 13;
@@ -310,6 +313,7 @@
             this.groupLaunch.Controls.Add(this.buttonConnect);
             this.groupLaunch.Controls.Add(this.textBoxCBUFEntry);
             this.groupLaunch.Controls.Add(this.buttonList);
+            this.groupLaunch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupLaunch.Location = new System.Drawing.Point(9, 12);
             this.groupLaunch.Name = "groupLaunch";
             this.groupLaunch.Size = new System.Drawing.Size(179, 83);
@@ -323,6 +327,7 @@
             this.groupEntry.Controls.Add(this.buttonSendCommand);
             this.groupEntry.Controls.Add(this.textBoxMapName);
             this.groupEntry.Controls.Add(this.buttonLoadMap);
+            this.groupEntry.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupEntry.Location = new System.Drawing.Point(9, 100);
             this.groupEntry.Name = "groupEntry";
             this.groupEntry.Size = new System.Drawing.Size(179, 131);
@@ -350,6 +355,7 @@
             // 
             this.groupBox1.Controls.Add(this.textBoxMovementSpeed);
             this.groupBox1.Controls.Add(this.buttonSpeedDefault);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(459, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(113, 83);
@@ -414,6 +420,7 @@
             this.groupBox2.Controls.Add(this.checkInfiniteAmmo);
             this.groupBox2.Controls.Add(this.buttonPauseGame);
             this.groupBox2.Controls.Add(this.checkShowWeapon);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(203, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(113, 219);
@@ -500,8 +507,8 @@
             this.buttonWarning.BackColor = System.Drawing.Color.Salmon;
             this.buttonWarning.Cursor = System.Windows.Forms.Cursors.Help;
             this.buttonWarning.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWarning.Location = new System.Drawing.Point(677, 208);
+            this.buttonWarning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWarning.Location = new System.Drawing.Point(543, 208);
             this.buttonWarning.Name = "buttonWarning";
             this.buttonWarning.Size = new System.Drawing.Size(23, 23);
             this.buttonWarning.TabIndex = 22;
@@ -513,9 +520,10 @@
             // 
             this.groupBox3.Controls.Add(this.textBoxJumpHeight);
             this.groupBox3.Controls.Add(this.buttonJumpDefault);
-            this.groupBox3.Location = new System.Drawing.Point(588, 12);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(459, 99);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(113, 83);
+            this.groupBox3.Size = new System.Drawing.Size(113, 85);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Jump Height";
@@ -557,7 +565,7 @@
             // 
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(708, 238);
+            this.ClientSize = new System.Drawing.Size(580, 238);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonWarning);
             this.Controls.Add(this.groupBox2);
@@ -568,6 +576,7 @@
             this.Controls.Add(this.richTextGameList);
             this.Controls.Add(this.groupCommands);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -626,6 +635,7 @@
         private System.Windows.Forms.Button buttonJumpDefault;
         private System.Windows.Forms.TextBox textBoxJumpHeight;
         private System.Windows.Forms.TextBox textBoxMovementSpeed;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

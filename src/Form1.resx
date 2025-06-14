@@ -128,7 +128,7 @@ $ - Not tested.
 
 		NX1
 #################################################
-	0x822c8c20 	- NX1 5-MP-Demo.exe
+	0x822C8C20 	- NX1 5-MP-Demo.exe
 
 
 		COD4
@@ -162,7 +162,7 @@ $ - Not tested.
 
 	0x82275CE8 	- 07-13-2009 Alpha default.xex
 	0x8226F590 	- 07-13-2009 Alpha default_mp.xex
-$	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
+	0x82350B90 	- $ 07-13-2009 Alpha 1-iw4sp.exe
 	0x8235D328 	- 07-13-2009 Alpha 2-iw4mp.exe
 
 		BO1
@@ -184,7 +184,7 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x82350A20 	- $ Disc Campaign
 	0x82393F28 	- $ Disc MP
 
-	0x822ff6e8 	- Greenlight DefaultMpPatch.xex
+	0x822FF6E8 	- Greenlight DefaultMpPatch.xex
 
 	0x82369CE8 	- July 20, 2012 default_mp.xex
 	0x82369CE8 	- July 20, 2012 Default_mp-Alpha-NoWhitelistNoAC.xex
@@ -195,8 +195,8 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x8250F1C8 	- July 23, 2012 CODMP.exe
 	0x825100A0 	- July 23, 2012 CODMP_patch.exe
 
-	0x825665f8 	- $ RFAZIO CODSP.exe
-	0x825e47f0 	- RFAZIO CODMP.exe
+	0x825665F8 	- $ RFAZIO CODSP.exe
+	0x825E47F0 	- RFAZIO CODMP.exe
 
 
 		Ghosts
@@ -208,7 +208,7 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x82385190 	- May 9, 2013 default_mp.xex
 
 	0x823880F0 	- May 21, 2013 default.xex
-	0x823c3d70 	- May 21, 2013 default_mp.xex
+	0x823C3D70 	- May 21, 2013 default_mp.xex
 
 
 		AW
@@ -221,6 +221,9 @@ $	0x82350B90 	- 07-13-2009 Alpha 1-iw4sp.exe
 	0x826B5898 	- Sep 16, 2014 1-s1_sp.exe
 	0x82814018 	- Sep 16, 2014 2-s1_mp.exe</value>
   </data>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
