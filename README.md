@@ -1,7 +1,7 @@
 # Alpha-Commander
 RTM tool that offers quick access to commands/maps on any build of COD on Xbox 360.
 
-List of every **Cbuf_addText** can be found [HERE!](https://github.com/eh-K/all-COD-cats)
+List of every **Cbuf_addText** can be found [here.](https://github.com/eh-K/all-COD-Cbuf_addTexts)
 
 Only supports RGH consoles running the JRPC plugin.
 
