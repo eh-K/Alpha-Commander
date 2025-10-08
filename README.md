@@ -5,7 +5,7 @@ List of every **Cbuf_addText** can be found [here.](https://github.com/eh-K/all-
 
 Only supports RGH consoles running the JRPC plugin.
 
-![image](etc/v1_05-image.png)
+<img width="580" height="265" alt="Screenshot 2025-10-07 201220" src="https://github.com/user-attachments/assets/e57d55cb-f3e5-4fd9-ad1e-a1a77768c6bc" />
 
 ## Features
 
