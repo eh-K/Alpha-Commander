@@ -6,7 +6,7 @@ Have provided xdevkit.dll since you will need a local copy in order to compile.
 > In order to compile, delete this file before compiling.
 
 2. Unblock Form1.resx. Windows will prevent you from compiling since the file was downloaded online...
-
+<img width="398" height="501" alt="example" src="https://github.com/user-attachments/assets/3957c030-075c-46e1-b89e-0a6cb98d92ce" />
 [Image here.](https://imgur.com/a/pjemyP5)
 
 
